@@ -30,6 +30,5 @@
     <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype" autowire="constructor">
 
     </bean>
-    <bean id="lifecycle" class="com.stackroute.BeanLifeCycleDemo" init-method="Init" destroy-method="clean" ></bean>
-
+    <bean class="com.stackroute.BeanPostProcessorDemoBean"/>
 </beans>

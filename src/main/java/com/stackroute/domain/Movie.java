@@ -4,10 +4,11 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Movie implements ApplicationContextAware, BeanFactoryAware, BeanNameAware {
+public class Movie implements BeanPostProcessor {
     private Actor actor;
 
     public Movie() {
@@ -18,6 +19,10 @@ public class Movie implements ApplicationContextAware, BeanFactoryAware, BeanNam
     {
         this.actor=actor;
 
+    }
+
+    public void init() {
+        System.out.println("Inside init method");
     }
 
     public void setActor(Actor actor) {
@@ -31,18 +36,10 @@ public class Movie implements ApplicationContextAware, BeanFactoryAware, BeanNam
                 '}';
     }
 
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("applicationcontext\n"+applicationContext);
-
+    public void destroy()
+    {
+        System.out.println("Inside Destroy Method");
     }
 
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("setBeanFactory\n"+beanFactory);
 
-    }
-
-    public void setBeanName(String s) {
-        System.out.println("setbeanname\n"+s);
-
-    }
 }
