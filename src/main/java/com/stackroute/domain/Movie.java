@@ -1,19 +1,22 @@
 package com.stackroute.domain;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Movie {
-    Actor actor;
-
-    public void setActor(Actor actor) {
-        this.actor = actor;
+    private Actor actor1,actor2,actor3;
+    public Movie(Actor actor1, Actor actor2, Actor actor3) {
+        this.actor1 = actor1;
+        this.actor2 = actor2;
+        this.actor3 = actor3;
     }
+
+
+
 
     @Override
     public String toString() {
         return "Movie{" +
-                "actor=" + actor +
-                '}';
+                "actor=" + actor1 +
+                ", actor1=" + actor2 +
+                ", actor2=" + actor3 +
+                '}' + '\n';
     }
 }
