@@ -2,7 +2,6 @@ package com.stackroute;
 
 import com.stackroute.domain.Movie;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @SuppressWarnings("ALL")
@@ -11,9 +10,11 @@ public class Main  {
         //use Application Context to retrieve the actor details
 
 
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanConfig.class);
-        Movie movie = applicationContext.getBean( Movie.class);
-        System.out.println(movie.toString());
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        Movie movie = context.getBean("movieA", Movie.class);
+        Movie movie1 = context.getBean("movie", Movie.class);
+        System.out.println(movie==movie1);
+        System.out.println(movie1.toString());
 
 
     }

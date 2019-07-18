@@ -1,18 +1,28 @@
 package com.stackroute.domain;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
-
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.stereotype.Component;
-
-@Component
-public class Movie {
-
+public class Movie implements BeanPostProcessor {
     private Actor actor;
 
+    public Movie() {
+        this.actor = null;
+    }
 
-    public Movie(Actor actor) {
+    public Movie(Actor actor)
+    {
+        this.actor=actor;
 
+    }
+
+    public void init() {
+        System.out.println("Inside init method");
     }
 
     public void setActor(Actor actor) {
@@ -26,7 +36,10 @@ public class Movie {
                 '}';
     }
 
-
+    public void destroy()
+    {
+        System.out.println("Inside Destroy Method");
+    }
 
 
 }
