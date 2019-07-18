@@ -1,8 +1,5 @@
 package com.stackroute.domain;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Movie {
     Actor actor;
 
