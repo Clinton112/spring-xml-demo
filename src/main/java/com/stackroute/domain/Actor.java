@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 
 package com.stackroute.domain;
+=======
+package com.stackroute.domain;
+
+public class Actor {
+>>>>>>> 09392a18604003f8a34c208c8c935d6bf3ce3b43
 
 public class Actor
 {
